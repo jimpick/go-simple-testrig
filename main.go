@@ -27,8 +27,6 @@ func newHost(listen multiaddr.Multiaddr) host.Host {
 	if err != nil {
 		panic(err)
 	}
-	// print the node's listening addresses
-	fmt.Println("Listen addresses:", h.Addrs())
 	return h
 }
 
@@ -50,7 +48,6 @@ func main() {
 
 	// srvHost.Peerstore().AddAddrs(clientHost.ID(), clientHost.Addrs(), peerstore.PermanentAddrTTL)
 
-	fmt.Println("protocol:", p2phttp.DefaultP2PProtocol)
 	listener, _ := gostream.Listen(srvHost, p2phttp.DefaultP2PProtocol)
 	// defer listener.Close()
 	go func() {
